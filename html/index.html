@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Weather Vane</title>
+
+    <!-- Bootstrap Stylesheet -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+
+<body>
+    <!-- Nav Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #27226e;">
+        <a class="navbar-brand" href="#">Weather Vane</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="https://darksky.net/forecast/40.7127,-74.0059/us12/en" target="_blank">Powered By Dark Sky</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://developer.mapquest.com/documentation/geocoding-api/" target="_blank">MapQuest Geocoding API</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+            <input id="searchBar" class="form-control mr-sm-2" type="search" placeholder="Address/City/Zip" aria-label="Search">
+            <button id="submit" class="btn btn-outline-light my-2 my-sm-0" type="button">Get Weather</button>
+            </form>
+        </div>
+    </nav>
+    <!-- End Nav Bar -->
+    
+    <!-- Weather Card Container -->
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+
+    <!-- Weather Card Template -->
+    <div id="template" style="display: none;">
+        <div class="col-xs-12 col-lg-4">
+            <div class="weatherCard" style="background-image: url('@@imageURL@@');">
+                <!-- Button to remove the card -->
+                <button type="button" id="remove">X</button>
+                <!-- Location -->
+                <h1>@@city@@</h1>
+                <!-- Current Temperature -->
+                <h1>@@currentTemp@@&#8457</h1>
+                <!-- List of Weather Info -->
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Location: @@cityState@@</li>
+                    <li class="list-group-item">Current Conditions: @@conditions@@</li>
+                    <li class="list-group-item">High Temp: @@highTemp@@&#8457</li>
+                    <li class="list-group-item">Low Temp: @@lowTemp@@&#8457</li>
+                    <li class="list-group-item">Chance of Precipitation: @@precipChance@@%</li>
+                </ul>
+                <button type="button" class="btn btn-secondary btn-lg btn-block" data-toggle="collapse" data-target="#forecast">Hide/Show Weekly Forecast</button>
+                <div id="forecast" class="collapse">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Today || High: @@max0@@&#8457 <br /> Low: @@low0@@&#8457 <br /> Precip. Chance: @@precip0@@%</li>
+                        <li class="list-group-item">@@date1@@ || High: @@max1@@&#8457 <br /> Low: @@low1@@&#8457 <br /> Precip. Chance: @@precip1@@%</li>
+                        <li class="list-group-item">@@date2@@ || High: @@max2@@&#8457 <br /> Low: @@low2@@&#8457 <br /> Precip. Chance: @@precip2@@%</li>
+                        <li class="list-group-item">@@date3@@ || High: @@max3@@&#8457 <br /> Low: @@low3@@&#8457 <br /> Precip. Chance: @@precip3@@%</li>
+                        <li class="list-group-item">@@date4@@ || High: @@max4@@&#8457 <br /> Low: @@low4@@&#8457 <br /> Precip. Chance: @@precip4@@%</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- JQuery, Popper.js, and Bootstrap JS -->
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous"></script>
+    <script 
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script 
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!-- API Keys File -->
+    <script 
+        src="../js/apiKeys.js"></script>
+    <!-- Custom JavaScript -->
+    <script 
+        src="../js/scripts.js"></script>
+</body>
+
+</html>
